@@ -33,11 +33,8 @@ namespace Deef.GameEngine
             }
             else
             {
-
                 playerConsoleInput.SetCurrentInput(default);
-
             }
         }
-
     }
 }

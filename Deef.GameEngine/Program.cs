@@ -53,21 +53,24 @@ namespace Deef.GameEngine
             var inputSystem = new ConsoleInputSystem(world);
 
             var playerRenderSystem = new PlayerRenderSystem(world);
+            var monsterRenderSystem = new MonsterRenderSystem(world);
 
             var playerMovement = new PlayerMovementSystem(world);
-
+            var monsterMovement = new MonsterMovementSystem(world);
             //Initialize Player position
             var initialPlayerPosition = new PlayerPosition();
             initialPlayerPosition.MoveTo(10, 10);
-            initialPlayerPosition.MoveTo(10, 10);
-
             world.Set(initialPlayerPosition);
+            //initializ monster/s
+            var initialMonsterPosition = new MonsterPosition();
+            initialMonsterPosition.MoveTo(12,12);
+            world.Set(initialMonsterPosition);
 
-            var updateSystems = new IUpdate[] {inputSystem, fpsCounter, playerMovement , health, mana}; //Order is important!
-            var renderSystems = new IRender[] {playerRenderSystem, health, mana, fpsWriter, fpsCounter };
+            var updateSystems = new IUpdate[] {inputSystem, fpsCounter, playerMovement, monsterMovement , health, mana}; //Order is important!
+            var renderSystems = new IRender[] {playerRenderSystem, monsterRenderSystem, health, mana, fpsWriter, fpsCounter };
             
             GameEngine gameEngine = new GameEngine(updateSystems, renderSystems);
-
+            
             gameEngine.Start();
 
         }

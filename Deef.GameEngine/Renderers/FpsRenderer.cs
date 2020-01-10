@@ -23,10 +23,9 @@ namespace Deef.GameEngine.Renderers
                 var prevPositionTop = Console.CursorTop;
                 var prevPositionLeft = Console.CursorLeft;
 
-                
                 Console.SetCursorPosition(108, 0);
-
                 _defaultSpinnerAnimation.Render(gameTime);
+
                 Console.SetCursorPosition(109, 0);
                 Console.Write($"[FPS: {_world.Get<FpsCount>().FramesPerSecond, 4}]", Color.BlueViolet);
                 Console.SetCursorPosition(prevPositionTop, prevPositionLeft);

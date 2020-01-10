@@ -27,10 +27,8 @@ namespace Deef.GameEngine
 
                     //Clear write previous, or leave trail
                     " ".WriteWithCursorRestore(prevLeft, prevTop, Console.BackgroundColor);
+                    "X".WriteWithCursorRestore(playerPosition.Left, playerPosition.Top, Color.GreenYellow);
                 }
-
-                //Write current
-                "X".WriteWithCursorRestore(playerPosition.Left, playerPosition.Top, Color.GreenYellow);
             }
         }
     }

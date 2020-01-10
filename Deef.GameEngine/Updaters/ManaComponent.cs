@@ -15,10 +15,7 @@ namespace Deef.GameEngine.Updaters
 
         public void Update(GameTime gameTime)
         {
-            if (Mana != null)
-            {
-                Mana.Update(gameTime);
-            }
+            Mana?.Update(gameTime);
         }
         public RegenAttribute Mana { get; set; }
         public void Render(GameTime gameTime)

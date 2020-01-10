@@ -25,6 +25,7 @@ namespace Deef.GameEngine
         public void Start()
         {
             _gameStopWatch.Start();
+            DoRender(GameTime);
            
             while (_shouldRun)
             {
