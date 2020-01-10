@@ -6,6 +6,7 @@ namespace Deef.GameEngine.Updaters
     {
         public string Name { get; set; }
         public double Current { get; set; }
+        public double OldCurrent { get; set; }
         public int Max { get; set; }
         public double RegenRatePerSecond { get; set; }
         private TimeSpan RegenInterval => TimeSpan.FromSeconds(1);

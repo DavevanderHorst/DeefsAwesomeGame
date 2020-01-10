@@ -23,9 +23,12 @@ namespace Deef.GameEngine.Updaters
         public RegenAttribute Mana { get; set; }
         public void Render(GameTime gameTime)
         {
-            
-            var manaString = $"✶ Mana  : {Convert.ToInt32(Mana.Current), -3}/{Mana.Max, 3} | {Mana.RegenRatePerSecond.ToString("F1"), 3} /s|";
-            manaString.WriteWithCursorRestore(Left, Top, Color.LightSkyBlue);
+            if (Math.Abs(Mana.OldCurrent - Mana.Current) > 0.001)
+            {
+                var manaString = $"✶ Mana  : {Convert.ToInt32(Mana.Current), -3}/{Mana.Max, 3}|";
+                manaString.WriteWithCursorRestore(Left, Top, Color.LightSkyBlue);
+                Mana.OldCurrent = Mana.Current;
+            }
         }
     }
 }

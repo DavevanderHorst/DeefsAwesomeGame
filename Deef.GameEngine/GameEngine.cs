@@ -14,7 +14,7 @@ namespace Deef.GameEngine
         {
         }
 
-        public GameEngine(IUpdate[] updateSystems, IRender[] renderSystems): this()
+        public GameEngine(IUpdate[] updateSystems, IRender[] renderSystems): this() // what does this 'this' do ???
         {
             _updateSystems = updateSystems;
             _renderSystems = renderSystems;
@@ -30,7 +30,6 @@ namespace Deef.GameEngine
             {
                 Tick();
             }
-            
         }
 
         private TimeSpan _previousElapsedTime;

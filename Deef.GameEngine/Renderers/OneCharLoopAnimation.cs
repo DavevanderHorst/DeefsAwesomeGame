@@ -39,6 +39,8 @@ namespace Deef.GameEngine.Renderers
         }
         private TimeSpan FrameInterval => TimeSpan.FromMilliseconds(_numberOfMsPerFrame);
 
+        public int OldFrameIndex { get; private set; }
+
         private TimeSpan _previousRegenUpdateGameTime;
         private int _frameIndex = 0;
 
@@ -52,7 +54,11 @@ namespace Deef.GameEngine.Renderers
                 _previousRegenUpdateGameTime = gameTime.Elapsed;
             }
 
-            Console.Write(_frames[_frameIndex], _colors[_frameIndex]);
+            if (_frameIndex != OldFrameIndex)
+            {
+                Console.Write(_frames[_frameIndex], _colors[_frameIndex]);
+                OldFrameIndex = _frameIndex;
+            }
         }
     }
 }
