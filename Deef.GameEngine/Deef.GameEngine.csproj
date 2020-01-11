@@ -10,4 +10,8 @@
     <PackageReference Include="FIGlet-_-lib" Version="1.0.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="level1\" />
+  </ItemGroup>
+
 </Project>

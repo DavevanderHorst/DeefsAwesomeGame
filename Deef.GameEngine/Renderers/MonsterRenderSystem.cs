@@ -1,4 +1,5 @@
-﻿using Colorful;
+﻿using System.Collections.Generic;
+using Colorful;
 using System.Drawing;
 using Deef.GameEngine.Updaters;
 
@@ -14,18 +15,21 @@ namespace Deef.GameEngine.Renderers
         }
         public void Render(GameTime gameTime)
         {
-            if (_world.Has<MonsterPosition>())
+            if (_world.Has<List<Monster>>())
             {
-                var monsterPosition = _world.Get<MonsterPosition>();
+                var monsters = _world.Get<List<Monster>>();
                 //if changed
-                if (monsterPosition.Changed)
+                foreach (var monster in monsters)
                 {
-                    var prevTop = monsterPosition.OldTop;
-                    var prevLeft = monsterPosition.OldLeft;
+                    if (monster.Mover.Changed)
+                    {
+                        var prevTop = monster.Mover.OldTop;
+                        var prevLeft = monster.Mover.OldLeft;
 
-                    //Clear write previous, or leave trail
-                    " ".WriteWithCursorRestore(prevLeft, prevTop, Console.BackgroundColor);
-                    "M".WriteWithCursorRestore(monsterPosition.Left, monsterPosition.Top, Color.GreenYellow);
+                        //Clear write previous, or leave trail
+                        " ".WriteWithCursorRestore(prevLeft, prevTop, Console.BackgroundColor);
+                        "M".WriteWithCursorRestore(monster.Mover.Left, monster.Mover.Top, Color.GreenYellow);
+                    }
                 }
             }
         }

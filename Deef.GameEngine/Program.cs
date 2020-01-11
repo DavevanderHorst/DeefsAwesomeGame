@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using Colorful;
 using Deef.GameEngine.Renderers;
@@ -47,32 +48,36 @@ namespace Deef.GameEngine
             };
 
             var fpsCounter = new FramesPerSecondCounter(world);
-
             var fpsWriter = new FpsRenderer(world);
-
             var inputSystem = new ConsoleInputSystem(world);
 
             var playerRenderSystem = new PlayerRenderSystem(world);
+            var playerMovement = new PlayerMovementSystem(world);
+
             var monsterRenderSystem = new MonsterRenderSystem(world);
 
-            var playerMovement = new PlayerMovementSystem(world);
-            var monsterMovement = new MonsterMovementSystem(world);
             //Initialize Player position
-            var initialPlayerPosition = new PlayerPosition();
-            initialPlayerPosition.MoveTo(10, 10);
+            var initialPlayerPosition = new MovementHelper();
+            initialPlayerPosition.MoveTo(8, 8);
             world.Set(initialPlayerPosition);
-            //initializ monster/s
-            var initialMonsterPosition = new MonsterPosition();
-            initialMonsterPosition.MoveTo(12,12);
-            world.Set(initialMonsterPosition);
 
-            var updateSystems = new IUpdate[] {inputSystem, fpsCounter, playerMovement, monsterMovement , health, mana}; //Order is important!
+            //initializ monster/s
+            Monster monster1 = new Monster(world, 11,11);
+            Monster monster2 = new Monster(world, 10,9);
+            Monster monster3 = new Monster(world, 8,10);
+            List<Monster> monsters= new List<Monster>();
+            monsters.Add(monster1);
+            monsters.Add(monster2);
+            monsters.Add(monster3);
+            world.Set(monsters);
+            MonstersUpdater monstersUpdater = new MonstersUpdater(world);
+
+            var updateSystems = new IUpdate[] {inputSystem, fpsCounter, playerMovement, monstersUpdater , health, mana}; //Order is important!
             var renderSystems = new IRender[] {playerRenderSystem, monsterRenderSystem, health, mana, fpsWriter, fpsCounter };
             
             GameEngine gameEngine = new GameEngine(updateSystems, renderSystems);
             
             gameEngine.Start();
-
         }
     }
 }

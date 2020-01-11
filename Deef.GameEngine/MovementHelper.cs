@@ -1,6 +1,6 @@
 ﻿namespace Deef.GameEngine
 {
-    public class PlayerPosition
+    public class MovementHelper
     {
         public int Top { get; set; }
         public int Left { get; set; }

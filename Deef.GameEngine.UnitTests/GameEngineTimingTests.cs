@@ -76,6 +76,16 @@ namespace Deef.GameEngine.UnitTests
             component.Mana.Current.Should().Be(120);
         }
 
+        [Test]
+        public void ReturnOldMapChar()
+        {
+            //if x moves in then oldchar = .
+            //then M enters and oldchar = x,
+            //but if x leaves, prints x as oldchar.
+            //but shoudlnt print, still should show M
+            // if M now leaves, he should print .
+        }
+
         //GameLoop maken, Tick doet -> Update / Render
         // 1 inputtje kunnen verwerken
         // 1 dingetje renderen

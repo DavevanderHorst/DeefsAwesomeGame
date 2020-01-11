@@ -17,14 +17,14 @@ namespace Deef.GameEngine
             {
                 var input = _world.Get<PlayerInput>();
 
-                PlayerPosition playerPosition;
-                if(_world.Has<PlayerPosition>())
+                MovementHelper playerPosition;
+                if(_world.Has<MovementHelper>())
                 {
-                    playerPosition = _world.Get<PlayerPosition>();
+                    playerPosition = _world.Get<MovementHelper>();
                 }
                 else
                 {
-                    playerPosition = new PlayerPosition();
+                    playerPosition = new MovementHelper();
                 }
                 
 

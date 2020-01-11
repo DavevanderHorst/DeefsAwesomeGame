@@ -16,9 +16,9 @@ namespace Deef.GameEngine
         public void Render(GameTime gameTime)
         {
             //Get PlayerPosition from World;
-            if (_world.Has<PlayerPosition>())
+            if (_world.Has<MovementHelper>())
             {
-                var playerPosition = _world.Get<PlayerPosition>();
+                var playerPosition = _world.Get<MovementHelper>();
                 //if changed
                 if (playerPosition.Changed)
                 {
