@@ -8,12 +8,13 @@ namespace Deef.GameEngine
     {
         public MonsterMovementSystem MonsterMovementSystem;
         public MovementHelper Mover;
-        public Monster(World world, int startPositionLeft, int startPositionTop)
+        public char MapSymbol;
+        public Monster(World world, int placeOnMap, MapWithDetails map, char mapSymbol)
         {
             Random rdm = new Random();
             MonsterMovementSystem = new MonsterMovementSystem(world, rdm.Next(2,9));
-            Mover = new MovementHelper();
-            Mover.MoveTo(startPositionLeft,startPositionTop);
+            Mover = new MovementHelper(map, mapSymbol, world);
+            Mover.MoveTo(placeOnMap);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Deef.GameEngine.Updaters
             
         }
 
-        public int Left { get; set; } = 30;
+        public int Left { get; set; } = 43;
         public int Top { get; set; } = 5;
 
         public void Update(GameTime gameTime)

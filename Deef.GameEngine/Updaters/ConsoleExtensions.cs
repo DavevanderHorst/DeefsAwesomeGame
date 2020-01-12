@@ -1,5 +1,6 @@
+using System;
 using System.Drawing;
-using Colorful;
+using Console = Colorful.Console;
 
 namespace Deef.GameEngine.Updaters
 {
@@ -23,6 +24,14 @@ namespace Deef.GameEngine.Updaters
             }
 
             Console.SetCursorPosition(prevPositionTop, prevPositionLeft);
+        }
+        public static void RemoveExtraText(int howManyLines)
+        {
+            Console.SetCursorPosition(0,16);
+            for (int i = 0; i < howManyLines; i++)
+            {
+                Console.WriteLine(new String(' ', Console.BufferWidth));
+            }
         }
     }
 }

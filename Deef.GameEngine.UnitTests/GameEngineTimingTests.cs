@@ -1,5 +1,8 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Deef.GameEngine.Updaters;
+using FIGlet.Utility;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -79,12 +82,9 @@ namespace Deef.GameEngine.UnitTests
         [Test]
         public void ReturnOldMapChar()
         {
-            //if x moves in then oldchar = .
-            //then M enters and oldchar = x,
-            //but if x leaves, prints x as oldchar.
-            //but shoudlnt print, still should show M
-            // if M now leaves, he should print .
+
         }
+
 
         //GameLoop maken, Tick doet -> Update / Render
         // 1 inputtje kunnen verwerken

@@ -6,7 +6,9 @@ namespace Deef.GameEngine
     public class World
     {
         readonly Dictionary<Type, object> _evilState = new Dictionary<Type, object>(16);
-
+        public bool MapIsChanged { get; set; } = true;
+        public bool HasMessage { get; set; } = false;
+        public int WrongDirectionCount { get; set; } = 0;
         public bool Has<T>()
         {
             return _evilState.ContainsKey(typeof(T));

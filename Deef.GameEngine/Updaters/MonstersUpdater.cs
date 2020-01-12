@@ -30,7 +30,7 @@ namespace Deef.GameEngine.Updaters
                 {
                     monster.MonsterMovementSystem._previousMoveUpdateGameTime = gameTime.Elapsed;
                     Random rdm = new Random();
-                    monster.MonsterMovementSystem._timeBeforeNextMove = rdm.Next(2, 9);
+                    monster.MonsterMovementSystem._timeBeforeNextMove = rdm.Next(20, 90)/10;
                     int moveToRandomDirection = rdm.Next(0, 4);
                     switch (moveToRandomDirection)
                     {

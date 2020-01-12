@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Deef.GameEngine
 {
@@ -24,7 +25,8 @@ namespace Deef.GameEngine
                 }
                 else
                 {
-                    playerPosition = new MovementHelper();
+                    var map = _world.Get<MapWithDetails>();
+                    playerPosition = new MovementHelper(map, 'X', _world);
                 }
                 
 
@@ -52,10 +54,6 @@ namespace Deef.GameEngine
                         default:
                             return;
                     }
-                }
-                else
-                {
-                    playerPosition.Changed = false;
                 }
             }
         }

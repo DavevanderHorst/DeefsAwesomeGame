@@ -19,7 +19,7 @@ namespace Deef.GameEngine.Updaters
                 }, 150);
         }
 
-        public int Left { get; set; } = 30;
+        public int Left { get; set; } = 43;
         public int Top { get; set; } = 4;
 
         public RegenAttribute Health { get; set; }
